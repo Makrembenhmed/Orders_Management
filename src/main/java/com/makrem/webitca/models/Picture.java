@@ -24,7 +24,7 @@ public class Picture {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String img_url;
-	@NotBlank
+	@NotBlank(message="description is required!")
 	private String description;
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="YYY-MM-DD HH:mm:ss")

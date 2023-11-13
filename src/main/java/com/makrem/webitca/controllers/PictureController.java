@@ -60,6 +60,11 @@ public class PictureController {
 			Files.write(path, bytes);
 			// get url of the file we just uploaded 
 			String url="/img/"+file.getOriginalFilename();
+			if (desc.isEmpty()) {
+				redirectatt.addFlashAttribute("message1",  " please the description must be not empty!!!");
+				return "redirect:/picture/add/{id}";
+				
+			}
 			this.pServ.uploadPic(curentart, url, desc);
 		}catch(IOException e){
 			e.printStackTrace();

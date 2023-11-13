@@ -17,7 +17,17 @@
 <link rel="stylesheet" href="/css/main.css">
 <!-- change to match your file/naming structure -->
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/app.js"></script>
+<script type="text/javascript" >
+
+function take_value(){
+	var n =document.forms["myform"]["qte"].value;
+	
+	alert(n);
+}
+
+
+
+</script>
 <!-- change to match your file/naming structure -->
 
 </head>
@@ -41,7 +51,7 @@
 
 					<th scope="col">Designation Article</th>
 					<th scope="col">Famille Article</th>
-					<th scope="col">Photo</th>
+				
 					<th scope="col" class="text-center">Action</th>
 				</tr>
 			</thead>
@@ -52,7 +62,7 @@
 					<tr>
 						<td><a href="/show/${onearticle.id}">${onearticle.designation}</a></td>
 						<td>${onearticle.famillearticle.familleart}</td>
-						<td><img src="" alt="..." /></td>
+						
 
 						<c:forEach items="${lignescmd}" var="oneligne">
 
@@ -117,11 +127,13 @@
 								<li style="color: Blue;" class="row mt-3">
 									<div class="col">${oneligne.article.designation }</div>
 									<div class="col">
-									<form:form 	action="/commander/${oneligne.id}" method="put">>
+									<form name="myform">
 									
-									Quantiter : <input type="number">
+									Quantiter : <input type="number" name=""  >
 									
-									</form:form>
+									<input type ="button" value = "valider" onclick="return take_value()">
+									
+									</form>
 										
 									</div>
 
@@ -134,5 +146,8 @@
 
 			</div>
 		</c:if>
+		</div>
+		
+		</div>
 </body>
 </html>

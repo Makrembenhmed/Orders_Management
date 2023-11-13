@@ -19,31 +19,37 @@
 </head>
 <body>
 <div class="container">
-<h1>List Of Libraries </h1>
 
-<ul>
-<c:forEach items="${listlib}" var="onelib">
-<li><a href="/librarie/${onelib.id}/show">${onelib.name}</a>  </li>
-</c:forEach>
-</ul>
-</hr>
 
-<form:form action="/libraries" method="post" modelAttribute="Library">
-<form:errors style="color:red" path="*"/>
-<p>
-	<form:label path="name"> name</form:label>
-<form:input path="name"/>
-</p>
-<p>
-<form:label path="location"> location</form:label>
-<form:input path="location"/> 
+<!--card-->  
+       <div class="container">
 
-</p>
-<button>Create</button>
-</form:form>
+        <div class="text-center m-5">
 
+            <h3>Produits</h3> 
+            <p>veuillez trouver les principeaux Articles</p>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12 p-1">
+
+                <div class="card " >
+                    <img src="images/3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-warning">Go somewhere</a>
+                    </div>
+                  </div>
+
+            </div>
+            </div>
+   
+
+        </div>
+
+      
 
 </div>
-   
 </body>
 </html>

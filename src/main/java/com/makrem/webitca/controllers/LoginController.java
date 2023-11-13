@@ -34,7 +34,7 @@ public class LoginController {
 		model.addAttribute("newUser", new Client());
 		model.addAttribute("newLogin", new LoginUser());
 
-		return "auth.jsp";
+		return "user.jsp";
 	}
 
 	@PostMapping("/register")
@@ -49,7 +49,7 @@ public class LoginController {
 			// Be sure to send in the empty LoginUser before
 			// re-rendering the page.
 			model.addAttribute("newLogin", new LoginUser());
-			return "auth.jsp";
+			return "user.jsp";
 		}
 
 		// No errors!
@@ -72,7 +72,7 @@ public class LoginController {
 		
         if(result.hasErrors()) {
             model.addAttribute("newUser", new Client());
-            return "auth.jsp";
+            return "user.jsp";
         }
     
         // No errors! 
@@ -88,23 +88,7 @@ public class LoginController {
 	public String dashboard () {
 		return "dashboard.jsp";
 	}
-	// render route
-//@GetMapping("/books")
-//public String Succ(HttpSession s , Model model) {	
-	//System.out.println(s.getAttribute("user_id"));
-	//Long userID = (Long) s.getAttribute("user_id");
-	//System.out.println(userID);
-	//if (userID == null) {
-	//return "redirect:/index";
-	//}else {
-	 //User potentielUser = userserv.findOne(userID); 
-	//model.addAttribute("name", potentielUser.getUserName());
-	//return "books.jsp";
-//	}
 	
-	
-	
-//}
 
 	@GetMapping("/logout")
 	public String logout(HttpSession s) {

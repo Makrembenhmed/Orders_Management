@@ -29,10 +29,12 @@
 <form method="post" action="/picture/upload/${curentArt.id}" enctype="multipart/form-data">
 <div class="form-group">
 <input type="file" name="pic" class="form-control-file" id="inlineFormInput">
+<p  class="text-danger" >${message}</p>
 
 </div>
 <div class="col-auto">
 <textarea name="description" class="form-control" id="exempleFormControlTextarea1" placeholder="Enter a description" 	></textarea>
+<p class="text-danger">${message1}</p>
 </div>
 <button class="btn btn-primary">Upload Picture</button>
 

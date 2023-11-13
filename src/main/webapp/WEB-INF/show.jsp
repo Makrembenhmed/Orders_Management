@@ -23,14 +23,28 @@
 <body>
 	<div class="container">
 
-		<h3>detaills of Item : ${thisart.designation}</h3>
+		 <div class="text-center m-5">
+
+            <h3>Pictures</h3> 
+            <p>detaills of Item : ${thisart.designation}</p>
+
+        </div>
+
+		
 		<hr />
 		<div class="row">
 			<c:forEach items="${pics}" var="pic">
-				<div class="col">
-					<p>${pic.article.designation}</p>
-					<img src="${pic.img_url}" alt="..." height="400" width="300" />
-					<p>${pic.description}</p>
+				<div class="col-lg-4 col-md-6 col-12 p-1">
+				<div class="card " >
+					
+					<img src="${pic.img_url}" alt="..." class="card-img-top" height="200" width="100" />
+					<div class="card-body">
+                      <h5 class="card-title">${pic.article.designation}</h5>
+                      <p class="card-text">${pic.description}</p>
+                     
+                    </div>
+					<p></p>
+				</div>
 				</div>
 
 			</c:forEach>
