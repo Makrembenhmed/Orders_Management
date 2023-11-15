@@ -6,10 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.makrem.webitca.models.Article;
 import com.makrem.webitca.models.Client;
@@ -68,7 +71,7 @@ public class DetailleCommandeController {
 	}
 
 	@GetMapping("/commander/{numcmd}")
-	public String newlignecmd(@PathVariable("numcmd") Long numcmd, HttpSession s,
+	public String newlignecmd( @ModelAttribute("qty") LigneCommande lignecmd,@PathVariable("numcmd") Long numcmd, HttpSession s,
 			Model model) {
 
 		// get All Articles
@@ -124,6 +127,34 @@ Commande curentcmd=commandeService.findCommande(numcmd);
 
 		return "redirect:/commander/{numcmd}";
 	}
+	
+	//   edit qty from ligne order
+	
+
+	// method for edit
+		@PutMapping("/edit/qty/{id}/{numcmd}/{idart}")
+		public String update(@Valid @ModelAttribute("qty") LigneCommande lignecmd,
+				@PathVariable("numcmd") Long numcmd, BindingResult result,@PathVariable("id") Long id,@PathVariable("idart") Long idart, HttpSession s, Model model) {
+			if (result.hasErrors()) {
+				
+				return "dashboard.jsp";
+			} else {
+			
+				Commande currentcmd=this.commandeService.findCommande(numcmd);
+				Article currentart=this.articleService.findArticle(idart);
+				lignecmd.setArticle(currentart);
+				lignecmd.setCommande(currentcmd);
+				
+			LignecommandeService.updateProject(lignecmd);
+			
+				
+				return "redirect:/commander/{numcmd}";
+			}
+
+		}
+
+	
+	
 	//
 	
 	@DeleteMapping("/commander/{id}/{numcmd}/delete")

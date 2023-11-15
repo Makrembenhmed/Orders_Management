@@ -100,16 +100,7 @@ public class ArticleController {
 			model.addAttribute("familles", familles);
 			return "editarticle.jsp";
 		} else {
-			
-		//	Article originalBook = articleservice.findArticle(article.getId());
-			//book.setLibrary(originalBook.getLibrary());
-			// grap the id curent user login
-			//Long userid = (Long) s.getAttribute("user_id");
-			//// grap the curent user login
-			//User curentUser = userservice.findOne(userid);
-			//book.setAuthor(curentUser);
-			
-
+		
 			articleservice.updateArticle(article);
 			
 			return "redirect:/newarticle";

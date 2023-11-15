@@ -127,13 +127,13 @@ function take_value(){
 								<li style="color: Blue;" class="row mt-3">
 									<div class="col">${oneligne.article.designation }</div>
 									<div class="col">
-									<form name="myform">
+									<form:form action="/edit/qty/${oneligne.id }/${ oneligne.commande.id}/${ oneligne.article.id}" method="put" modelAttribute="qty">
 									
-									Quantiter : <input type="number" name=""  >
+									Quantity : <form:input type="number" path="quantity" value="${oneligne.quantity}" />
 									
-									<input type ="button" value = "valider" onclick="return take_value()">
+									<input type ="submit" value = "valider" >
 									
-									</form>
+									</form:form>
 										
 									</div>
 
